@@ -19,7 +19,7 @@
         document.write("모든 학생 평균<br>")
 
         let totalScore = 0;
-        for(let i = 0; i < student,length;i++){
+        for(let i = 0; i < student.length;i++){
           //  console.log(student[i].score);
             totalScore += student[i].score;
         }
@@ -32,7 +32,27 @@
         console.log(roundScore);
 
         document.write(`평균 : ${roundScore}`);
+        
+        document.write("<br>")
+
         //최고점수학생이름찾기
+        switch(student){
+            case "엘사" : student = 85;
+            break;
+
+            case "모아나" : student = 92;
+            break;
+
+            case "주디" : student = 78;
+            break;
+
+            case "라푼젤" : student = 36;
+        }
+
+        let studentScore = Math.max(name);
+        console.log(studentScore);
+
+        document.write(`max : ${maxScore}`);
     </script>
 </body>
 </html>
