@@ -9,23 +9,23 @@
     <script>
         /*
         open("url","새창 이름","새창옵션") 
-        alret : 경고 알림장
+        alret : 경고 알림창
         prompt("질문","답변가이드")
         confirm("질문내용") : 확인True /취소False 버튼을 누를 수 있음
-        setTimeout(function()){
-            자바스크립트코드;
+        setTimeout(function(){
+            자바스크립트 코드;
         },일정시간) : 단 한번 일정한 시간 간격으로 코드를 실행
-        setInterval :
+        setInterval : 일정시간 간격으로 코드를 계속 실행
         */
-    //    window.open("http://www.youtube.com", "유튜브","width=350, height=400, left=50, top =500");
+    //    window.open("http://www.youtube.com","유튜브","width=350, height=400, left=50, top =500");
 
        let userConfirm = confirm("탈퇴 완료되었습니다.");
        console.log(userConfirm);
 
        let num = 0;
        let numadd = setTimeout(() => {
-            num++;
-            console.log("num :",num)
+           num++;
+           console.log("num :",num);
        },5000);
     </script>
 </body>

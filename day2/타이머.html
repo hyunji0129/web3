@@ -7,14 +7,14 @@
 </head>
 <body>
     <script>
-        // inNan(입력받은값) : 사용자가 입력한 값이 숫자가 아니라면 true를 변환함
+        // inNan(입력받은값) : 사용자가 입력한 값이 숫자가 아니라면 true를 반환함
         // NaN : Not a Number
 
         let userTime = Number(prompt("타이머 시간을 입력하세요(초)"));
-        if(isNum(userTime) || userTime <=0){
+        if(isNaN(userTime) || userTime <= 0){
             document.write("올바른 시간을 입력하세요");
         }else {
-            document.write("타이머 시작 :" + userTime + "초 남음");
+            document.write("타이머 시작 : "+ userTime + "초 남음");
 
             let timer = setInterval(()=>{
                 userTime--;
