@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>return이미지</title>
+    <style>
+        button{
+            width: 250px;
+            height: 80px;
+            background: aqua;
+            color: #fff;
+            border: none;
+            font-size: 50px;
+        }
+
+        figure,
+        img {
+            width: 500px;
+            height: 700px;
+            max-width: 0 0 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <figure>
+            <img src="./풍경1.jpg.jpg" alt="">
+        </figure>
+        <button></button>
+        <button>next</button>
+    </div>
+   
+    <script>
+        let imgNum = 1;
+        function gallery(num){
+            if(num){
+                //next를 눌렀을 때
+                if(imgNum == 3){
+                    return;
+                }else{
+                    imgNum++;
+                }
+            }else{
+                //prev를 눌렀을 때
+                if(imgNum == 1){
+                    return;
+                }else{
+                    imgNum--;
+                }
+            }
+            let photo = document.getElementById
+        }
+    </script>
+</body>
+</html>
