@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>고객대기명단</title>
 </head>
 <body>
     <button id="user_name">고객명입력</button>
@@ -18,6 +18,7 @@
         const userCheck = document.getElementById("user_check");
         const comeIn = document.getElementById("come_in");
         let list = new Array();
+        
         userName.addEventListener("click", function(){
             // list.push(prompt("성명 입력"));
             const name = prompt("성명 입력");
@@ -27,13 +28,15 @@
                 alert("이름을 입력해주세요");
             }
         })
+        
         console.log(list);
         // 이름 있는 함수를 사용~~
         //userCheck를 눌렀을 때 현재 대기자는 홍길동,김철수,박영희 이며, 총 3명 입니다.
         // 대기자가 없다면 없습니다.
+
         function listName(){
             if(list.length){
-                alert(`현재 대기자는 ${list.length}명 입니다.`);
+                alert(`현재 대기자는 ${list}이며, 총 ${list.length}명 입니다.`);
             }else{
                 alert("대기자가 없습니다.");
             }
@@ -44,9 +47,10 @@
         function come(){
             if(list.length){
                 alert(`${list.shift()}님 입장합니다. 대기 인원은 ${list.length}명 입니다.`);
-            }else(
-                
-            )
+            }else{
+                alert("입장할 손님이 없습니다.");
+            }
         }
+        comeIn.addEventListener("click",come);
     </script>
 </html>
