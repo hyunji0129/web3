@@ -25,6 +25,12 @@
             background: burlywood;
             align-items: center;
             box-sizing: border-box;
+            transition: 1s;
+        }
+
+        .header > ul {
+            display: flex;
+            list-style: none;
         }
 
         li {
@@ -35,22 +41,24 @@
         .login_btn > button {
             background: #fff;
             border: none;
-            padding: 8 16px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: 0.3s;
+            cursor: pointer;
         }
 
         .header_active {
-            background: beige;
+            background: rgb(219, 62, 62);
         }
 
         .header_active_text {
-            color: rgb(210, 152, 65);
+            color: rgb(245, 179, 179);
         }
 
-        .login_btn > header_active_button {
-            background: red;
+        .login_btn > .header_active_button {
+            background: rgb(214, 108, 108);
             color: #fff;
         }
-
     </style>
 </head>
 <body>
@@ -69,6 +77,14 @@
     </header>
 
     <script>
+        //getBoundingClientRect().x : 현재 창 기준 x좌표
+        //getBoundingClientRect().y : 현재 창 기준 y좌표
+        //getBoundingClientRect().width : 엘리먼트 가로
+        //getBoundingClientRect().height : 엘리먼트 세로
+        //getBoundingClientRect().top : 현재 창기준 세로 시작점 부터 엘리먼트 윗변 까지의 거리
+        //getBoundingClientRect().left : 현재 창기준 가로 시작점 부터 엘리먼트 왼쪽변 까지의 거리
+        //getBoundingClientRect().right : 현재 창기준 가로 시작점 부터 엘리먼트 오른쪽변 까지의 거리
+        //getBoundingClientRect().bottom : 현재 창기준 세로 시작점 부터 엘리먼트 아래변 까지의 거리
         const header = document.getElementById("header");
         let headerHeight = header.getBoundingClientRect().height;
         console.log(headerHeight);
@@ -78,7 +94,7 @@
         console.log(btns);
 
         window.addEventListener("scroll",()=>{
-            let scrollHeight = window.screenY;
+            let scrollHeight = window.scrollY;
             console.log(scrollHeight);
 
             if(scrollHeight > headerHeight){
@@ -89,9 +105,17 @@
                 btns.forEach((btn)=>{
                     btn.classList.add("header_active_button");
                 })
+            }else{
+                header.classList.remove("header_active");
+                headerColorChange.forEach((elem)=>{
+                    elem.classList.remove("header_active_text");
+                })
+                btns.forEach((btn)=>{
+                    btn.classList.remove("header_active_button");
+                })
             }
 
-            headerHeight = window.scrollY
+            headerHeight = window.scrollY;
         })
     </script>
 </body>
