@@ -8,7 +8,7 @@
         .open_modal,
         .close_modal {
             width: 200px;
-            height: 40px;
+            height: 60px;
             font-size: 24px;
             background: rgb(238, 174, 174);
             color: #fff;
@@ -17,6 +17,7 @@
         }
 
         .overlay {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -26,14 +27,17 @@
         }
 
         .modal {
+            display: none;
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            border: 1px solid rgb(83, 203, 203);
+            border: 2px solid rgb(29, 143, 136);
+            color: rgb(29, 143, 136);
             padding: 24px;
             text-align: center;
             border-radius: 24px;
+            background: #fff;
         }
 
         .close_modal {
@@ -43,15 +47,14 @@
 </head>
 <body>
     <button class="open_modal" id="open_modal">모달창 오픈</button>
+   
     <div class="overlay" id="overlay">
-        <!-- 뒤에 깔리는 배경색 -->
+       <div class="modal" id="modal">
+            <h2>모달창이 오픈되었음</h2>
+            <button class="close_modal" id="close_modal">모달창 닫기</button>
+        </div>
     </div>
 
-    <div class="modal" id="modal">
-        <h2>모달창이 오픈되었음</h2>
-        <button class="close_modal" id="close_modal">모달창 닫기</button>
-    </div>
-    
     <script>
         const openModal = document.getElementById("open_modal");
         const overlay = document.getElementById("overlay");
@@ -74,9 +77,13 @@
 
         overlay.addEventListener("click",()=>{
             closeModalFunction();
-        })
+        });
 
-        document.addEventListener("key")
+        document.addEventListener("keydown",()=>{
+            if(event.key === 'Escape'){
+                closeModalFunction();
+            }
+        });
     </script>
 </body>
 </html>
