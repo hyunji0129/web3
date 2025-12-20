@@ -18,40 +18,41 @@
         //     js코드;
         // }
 
-        // let count = 0;
-        // firstFunction();
+        let count = 0;
+        firstFunction();
 
-        // function firstFunction(){
-        //     count++;
-        //     document.write(`안녕하세요 ${count}<br>`);
-        // }
-        // firstFunction();
-
-        // secondFunction();
-
-        // let secondFunction = function(){
-        //     count++;
-        //     document.write(`안녕히계세요 ${count}`);
-        // }
-        // secondFunction();
-
-        // const button = document.querySelector(".button");
-        // button.addEventListener("click",function(){
-
-        // })
-
-        function sayHello(){
-            console.log("Hello");
-            console.log("Hi");
-            console.log("안녕");
+        function firstFunction(){
+            count++;
+            document.write(`안녕하세요 ${count}<br>`);
         }
-        sayHello();
-        sayHello();
+        firstFunction();
 
-        const sayBye = function(){
-            console.log("good bye");
+        secondFunction();
+
+        let secondFunction = function(){
+            count++;
+            document.write(`안녕히계세요 ${count}`);
         }
-       sayBye();
+        
+        secondFunction();
+
+        const button = document.querySelector(".button");
+        button.addEventListener("click",function(){
+
+        })
+
+    //     function sayHello(){
+    //         console.log("Hello");
+    //         console.log("Hi");
+    //         console.log("안녕");
+    //     }
+    //     sayHello();
+    //     sayHello();
+
+    //     const sayBye = function(){
+    //         console.log("good bye");
+    //     }
+    //    sayBye();
 
     </script>
 </body>
