@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>햄버거 선생님</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ham_container {
+            position: fixed;
+            right: 24px;
+            top: 24px;
+            padding: 16px 0;
+            z-index: 999;
+        }
+
+        .hamburger {
+            width: 40px;
+            height: 3px;
+            background-color: black;
+            position: relative;
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background-color: black;
+            display: block;
+            position: absolute;
+            left: 0;
+            transition: 0.3s;
+        }
+
+        .hamburger::before {
+            top: -12px;
+        }
+
+        .hamburger::after {
+            top: 12px;
+        }
+
+        .hamburger.active {
+            background-color: transparent;
+        }
+
+        .hamburger.active::before {
+            transform: rotate(45deg);
+            top: 0;
+            background-color: #fff;
+        }
+
+        .hamburger.active::after {
+            transform: rotate(-45deg);
+            top: 0;
+            background-color: #fff;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            width: 300px;
+            background-color: aquamarine;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            right: -300px;
+            transition: 0.3s;
+        }
+
+        .menu > li {
+            list-style: none;
+            padding: 16px;
+            font-size: 24px;
+        }
+
+        .menu > li > a {
+            color: rgb(57, 141, 113);
+            text-decoration: none;
+        }
+
+        .menu.active {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ham_container">
+        <div class="hamburger"></div>
+    </div>
+    <ul class="menu">
+        <li>
+            <a href="#">About</a>
+        </li>
+        <li>
+            <a href="#">History</a>
+        </li>
+        <li>
+            <a href="#">Contant</a>
+        </li>
+    </ul>
+    
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const ham_container = document.querySelector(".ham_container");
+        const menu = document.querySelector(".menu");
+
+        //toggle 위험하다. 알고는 있을걸(편리하게 쓸 수 있다.)
+        // hamContainer.addEventListener("click",()=>{
+        //     hamburger.classList.toggle("active");
+        //     menu.classList.toggle("active");
+        // });
+
+        let isMenuOpen = true;
+        hamContainer.addEventListener("click",()=>{
+            if(isMenuOpen){
+                hamburger.classList.add("active");
+                menu.classList.add("active");
+            }else{
+                hamburger.classList.remove("active");
+                menu.classList.remove("active");
+            }
+            isMenuOpen = !isMenuOpen;
+        });
+    </script>
+</body>
+</html>
