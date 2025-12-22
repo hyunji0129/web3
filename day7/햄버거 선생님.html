@@ -65,7 +65,7 @@
             position: fixed;
             top: 0;
             width: 300px;
-            background-color: aquamarine;
+            background-color: rgb(45, 102, 83);
             height: 100%;
             padding: 0;
             margin: 0;
@@ -80,7 +80,7 @@
         }
 
         .menu > li > a {
-            color: rgb(57, 141, 113);
+            color: rgb(115, 173, 154);
             text-decoration: none;
         }
 
@@ -107,8 +107,8 @@
     </ul>
     
     <script>
-        const hamburger = document.querySelector(".hamburger");
-        const ham_container = document.querySelector(".ham_container");
+        const hamBurger = document.querySelector(".hamburger");
+        const hamContainer = document.querySelector(".ham_container");
         const menu = document.querySelector(".menu");
 
         //toggle 위험하다. 알고는 있을걸(편리하게 쓸 수 있다.)
@@ -120,10 +120,10 @@
         let isMenuOpen = true;
         hamContainer.addEventListener("click",()=>{
             if(isMenuOpen){
-                hamburger.classList.add("active");
+                hamBurger.classList.add("active");
                 menu.classList.add("active");
             }else{
-                hamburger.classList.remove("active");
+                hamBurger.classList.remove("active");
                 menu.classList.remove("active");
             }
             isMenuOpen = !isMenuOpen;
