@@ -8,7 +8,7 @@
         .slide_container {
             width: 1000px;
             height: 500px;
-            border: 3px solid aquamarine;
+            border: 3px solid rgb(21, 87, 65);
             text-align: center;
             line-height: 500px;
             color: rgb(35, 128, 97);
@@ -42,14 +42,14 @@
     </div>
     <script>
         const viewBox = document.querySelector(".slide_container"); 
-        const btns = document.querySelector("btn_box");
+        const btns = document.querySelector(".btn_box");
        
 
         let index = 1;
         viewBox.innerHTML = index;
 
-        btns.children[0].addEventListener("click");
-        btns.children[1].addEventListener("click");
+        btns.children[0].addEventListener("click",prev);
+        btns.children[1].addEventListener("click",next);
 
         function prev(){
             if(index === 1){

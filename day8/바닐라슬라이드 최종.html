@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최종</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide_container {
+            width: 1000px;
+            height: 500px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: flex;
+            height: 500px;
+        }
+
+        .slide > li {
+            width: 1000px;
+            height: 500px;
+            height: none;
+        }
+
+        img {
+            width: 1000px;
+            height: 500px;
+        }
+
+        .slide_btn {
+            width: 1000px;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button {
+            width: 150px;
+            height: 50px;
+            background: rgb(15, 107, 76) ;
+            font-size: 32px;
+            color: #ffffff;
+            border: none;
+        }
+
+        .dot_box {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: aquamarine;
+            border-radius: 50%;
+        }
+
+        .dot.active {
+            background-color: aqua;
+            width: 25px;
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide_container">
+        <ul class="slide">
+            <li class="slider_01">
+                <img src="./이미지/1.jpeg" alt="#">
+            </li>
+            <li class="slider_02">
+                <img src="./이미지/2.jpeg" alt="#">
+            </li>
+            <li class="slider_03">
+                <img src="./이미지/3.jpeg" alt="#">
+            </li>
+            <li class="slider_04">
+                <img src="./이미지/4.jpeg" alt="#">
+            </li>
+            <li class="slider_05">
+                <img src="./이미지/5.jpeg" alt="#">
+            </li>
+           
+        </ul>
+    </div>
+    <div class="slide_btns">
+        <button>prev</button>
+        <div class="dot_box">
+        </div>
+
+        <button>next</button>
+    </div>
+
+    <script>
+        const button = document.querySelector(',slide_btns');
+        const viewBox = document.querySelector(',slide_container');
+        const slide = document.querySelector(',slide');
+        const dotBox = document.querySelector(',dot_box');
+        const sliderWidth = 1000;
+        let moveCheck = true;
+
+        const first = slide.firstElementChild.cloneNode(true);
+        console.log(first);
+        const last = slide.lastElementChild.cloneNode(true);
+        console.log(last);
+
+        slide.appendChild(first);
+        slide.insertBefore(last,slide,firstElementChild);
+        let slideLength = slide.childElementCount;
+        console.log(slideLength);
+
+        slide.style.width = slideLength * sliderWidth + "px";
+    //====================================================================
+
+    </script>
+</body>
+</html>
