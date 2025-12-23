@@ -11,7 +11,7 @@
             border: 3px solid aquamarine;
             text-align: center;
             line-height: 500px;
-            color: rgb(15, 107, 76);
+            color: rgb(35, 128, 97);
             font-size: 100px;
             margin: 0 auto;
         }
@@ -34,7 +34,7 @@
     </style>
 </head>
 <body>
-    <div class = "slide_container"></div>
+    <div class="slide_container"></div>
 
     <div class="btn_box">
         <button>prev</button>
@@ -44,8 +44,7 @@
         const viewBox = document.querySelector(".slide_container"); 
         const btns = document.querySelector("btn_box");
        
-       
-        console.log(btns.children[0]);
+
         let index = 1;
         viewBox.innerHTML = index;
 
@@ -64,7 +63,7 @@
             if(index === 4){
                 index = 1;
             }else{
-                index--;
+                index++;
             }
             viewBox.innerHTML =index; 
         }
