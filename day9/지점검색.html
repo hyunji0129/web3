@@ -10,9 +10,9 @@
             margin: 0;
         }
 
-        .map_search {
+        .map_section {
             display: flex;
-            background: rgb(143, 231, 231);
+            background: rgb(16, 125, 80);
             height: 100vh;
             justify-content: center;
             align-items: center;
@@ -29,7 +29,7 @@
             margin: 0;
         }
 
-        .right_search {
+        .right_search > h2 {
             font-size: 32px;
             margin: 0;
         }
@@ -67,8 +67,8 @@
     </style>
 </head>
 <body>
-    <section>
-        <div class="left-map">
+    <section class="map_section">
+        <div class="left_map">
             <p>스타벅스 지점찾기</p>
             <h1>Starbucks Place</h1>
             <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.747193671032!2d127.09837142378882!3d37.51388029753701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca52a0b5a7d5b%3A0xe1c5b622ca41f616!2z7Iqk7YOA67KF7IqkIOyeoOyLpOyLnOq3uOuniO2DgOybjOygkA!5e0!3m2!1sko!2skr!4v1766546311802!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -78,8 +78,8 @@
             <h2>지점찾기</h2>
             <div class="input_box">
                 <input type="text" class="input" id="input_text" placeholder="지역을 입력하세요">
-                <button>
-                    <!-- 아이콘 가져오기-피그마 -->
+                <button class="search_icon">
+                    <img src="./써치.png" alt="">
                 </button>
             </div>
         </div>
@@ -117,9 +117,9 @@
 
         function input(){
             const query = encodeURIComponent("스타벅스" + inputText.value.trim());
-            // encodeURIComponent : 주소창에 특수문자나 한글을 그대로
-            //인코딩:주소창 가져오기
-            window.open("" + query + "")
+            // encodeURIComponent : 주소창에 특수문자나 한글을 그대로 입력할 수 없기 때문에 웹주소에 맞게 인코딩 해줌
+            //인코딩 : %FG%YBG%GFFFD%FGFFG
+            window.open("https://www.google.co.kr/maps/search/" + query + "/data=!3m1!4b1");
         }
 
     </script>
