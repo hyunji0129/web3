@@ -25,7 +25,7 @@
         .slide > li {
             width: 1000px;
             height: 500px;
-            height: none;
+            list-style: none;
         }
 
         img {
@@ -65,10 +65,9 @@
 
         .dot.active {
             background-color: aqua;
-            width: 25px;
+            width: 50px;
             border-radius: 8px;
         }
-
     </style>
 </head>
 <body>
@@ -102,7 +101,7 @@
     </div>
 
     <script>
-        const button = document.querySelector('.slide_btns'); // 닷을 포함한 전체 버튼 상자
+        const buttons = document.querySelector('.slide_btns'); // 닷을 포함한 전체 버튼 상자
         const viewBox = document.querySelector('.slide_container'); // 보여질 부분
         const slide = document.querySelector('.slide'); // ul
         const dotBox = document.querySelector('.dot_box'); // dot이 들어갈 빈div
@@ -127,35 +126,36 @@
         console.log(last);
 
         slide.appendChild(first);
-        slide.insertBefore(last,slide,firstElementChild);
-        let slideLength = slide.childElementCount;
-        console.log(slideLength);
+        slide.insertBefore(last,slide.firstElementChild);
+        let sliderLength = slide.childElementCount;
+        console.log(sliderLength);
 
-        slide.style.width = slideLength * sliderWidth + "px"; // ul길이조절
+        slide.style.width = sliderLength * sliderWidth + "px"; // ul길이조절
 
     //====================================================================
     // 처음 브라우저 열었을 때 보이는 인덱스 설정
     let index = 1; // 현재 보고있는 화면의 0 1 2 3 4 5 6
     slide.style.transform = `translateX(-${index*sliderWidth}px)`;
     //====================================================================
-    button.children[0].addEventListener("click",prev);    
-    button.children[2].addEventListener("click",next);    
+    buttons.children[0].addEventListener("click",prev);    
+    buttons.children[2].addEventListener("click",next);    
     //====================================================================
     // 이동하는 함수
     function moveSlide(time){
         slide.style.transition = time + "ms"; 
         slide.style.transform = `translateX(-${index*sliderWidth}px)`;   
+        updateDot();
     }
    
     //====================================================================
     // 이전 다음 함수
     function prev(){
         if(moveCheck){ // 만약 moveCheck가 true라면 실행한다.
-            moveCheck = false; // 슬라이드가 이동하는 중에 다시 if문이 실행되면 안됨! if문이 작동하지 않도록 막아줌 
-            index--; // 이전을 눌렀으니 인덱스를 1감소시켜줌
+            moveCheck = false; // 슬라이드가 이동하는 중에 다시 if문이 실행되면 안됨! if문이 작동되지 않도록 잠시 막아줌 
+            index--; // 이전을 눌렀으니 인덱스를 1 감소 시켜줌
             setTimeout(()=>{
                 if(index===0){ // 감소한 인덱스가 0과 같다면
-                    index = slide.childElementCount - 2; // 전체 인덱스에서 -2한 값을 index에 넣어줌
+                    index = slide.childElementCount - 2; // 전체 인덱스에서 -2 한 값을 index에 넣어줌
                     moveSlide(0); // 맨 왼쪽에 붙어있는 인덱스(5)에서 실제 5번 인덱스로 0초만에 이동함
                 } 
                 moveCheck = true; // 다시 prev를 누를 수 있도록 true로 바꿔줌
@@ -164,40 +164,41 @@
         }
     }
     function next(){
-        if(moveCheck){
-            moveCheck = false;
-            index++;
+        if(moveCheck){ // 만약 moveCheck가 true라면 실행한다.
+            moveCheck = false; // 슬라이드가 이동하는 중에 다시 if문이 실행되면 안됨! if문이 작동되지 않도록 잠시 막아줌 
+            index++;  // 다음을 눌렀으니 인덱스를 1 증가 시켜줌
             setTimeout(()=>{
-                if(index===slide.childElementCount - 1){
-                    index = 1;
-                    moveSlide(0);
+                if(index===slide.childElementCount - 1){ // 감소한 인덱스가 0과 같다면
+                    index = 1; // 전체 인덱스에서 -1 한 값을 index에 넣어줌
+                    moveSlide(0);  // 맨 왼쪽에 붙어있는 인덱스(5)에서 실제 5번 인덱스로 0초만에 이동함
                 }
-                moveCheck = true;
-            },1000);
-            moveSlide(1000);
+                moveCheck = true; // 다시prev를 누를 수 있도록 true로 바꿔줌
+            },1000); // 1초안에 moveCheck가 true로 바뀜
+            moveSlide(1000); // 왼쪽으로 이동시킴
         }
     }
     
     //=====================================================================
     //dot 만들기
-    for(let i = 0; i < slideLength-2; i++){
-        const makeDot = document.createElement("div");
+    for(let i = 0; i < sliderLength-2; i++){
+        const makeDot = document.createElement('div');
         makeDot.classList.add("dot");
         dotBox.appendChild(makeDot);
+        
         makeDot.addEventListener("click",()=>{
             index = i + 1;
             moveSlide(1000);
-        })
+        });
     }
 
     dotBox.children[0].classList.add("active");
 
     function updateDot(){
-        for(let i = 0; i < slideLength-2; i++){
+        for(let i = 0; i < sliderLength-2; i++){
             dotBox.children[i].classList.remove("active");
             if(index===0){
-                dotBox.children[slideLength-3].classList.add("active");
-            }else if(index===sliderLendgth-1){
+                dotBox.children[sliderLength-3].classList.add("active");
+            }else if(index===sliderLength-1){
                 dotBox.children[0].classList.add("active");
             }else{
                 dotBox.children[index-1].classList.add("active");
@@ -205,7 +206,9 @@
         }
     }
     
-    setInterval.
+    setInterval(()=>{
+        next();
+    },3000);
     </script>
 </body>
 </html>
