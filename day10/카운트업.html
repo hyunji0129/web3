@@ -8,19 +8,19 @@
         body {
             margin: 0;
             padding: 0;
-            background: rgb(76, 151, 180);
+            background: rgb(69, 150, 182);
             color: #fff;
             height: 3000px;
         }
 
-        .conunter_section {
+        .counter_section {
             margin-top: 1000px;
             display: flex;
             gap: 100px;
             justify-content: center;
         }
 
-        .conunter_box {
+        .counter_box {
             text-align: center;
         }
 
@@ -36,16 +36,16 @@
     </style>
 </head>
 <body>
-    <section class="conunter_section">
-        <div class="conunter_box">
+    <section class="counter_section">
+        <div class="counter_box">
             <div class="number" data-target="1500">0</div>
             <div class="label">아바타</div>
         </div>
-        <div class="conunter_box">
+        <div class="counter_box">
             <div class="number" data-target="550">0</div>
             <div class="label">주토피아</div>
         </div>
-        <div class="conunter_box">
+        <div class="counter_box">
             <div class="number" data-target="99">0</div>
             <div class="label">데몬헌터스</div>
         </div>
@@ -56,7 +56,7 @@
 
         function animateCounter(counter){
             counter.innerText = "0";
-            const target =+ counter.getAttribute("date-taget");
+            const target =+ counter.getAttribute("data-taget");
 
             let current = 0;    
             const update = ()=>{
@@ -89,9 +89,9 @@
             })
         });
         // IntersectionObserver : 뷰포트를 기준으로 대상요소가 나타날때 콜백함수를 호출하는 API
-        // 우리가 원하는 요소가 화면에 들어왔는지 감시하는 도구() 
+        // 우리가 원하는 요소가 화면에 들어왔는지 감시하는 도구(감시 대상이 화면 안에 들어오거나 밖으로 나가거나 할 때 자동으로 실행됨) 
         // entries : 감시중인 요소에 변화가 생기면 변화가 생긴 요소를 entries에 넣음 entries는 요소들을 배열형식으로 보관하는 장소
-        // 
+        // 요소들을 감시하다가 무슨 일이 생기면 엔트리스에 이벤트가 일어난 요소들이 들어가게 됨
 
         numbers.forEach(num => {
             observer.observe(num);
