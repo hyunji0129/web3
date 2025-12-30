@@ -15,6 +15,17 @@
             color: #fff;
             margin: 0 300px;
             transform: translateY(350px);
+            border-right: 2px solid #fff;
+            width: max-content;
+            animation: borderAnimation 1s infinite
+        }
+
+        @keyframes borderAnimation {
+            50% {
+                /* border: none; */
+                /*배경색 같은색으로 주기*/
+
+            }
         }
     </style>
 </head>
@@ -43,23 +54,25 @@
 
         const typingElement = document.getElementById("typing");
         console.log(texts[textIndex].length);
-        const typing = ()=> {
+        const typing = ()=>{
             if(charIndex < texts[textIndex].length){
                 typingElement.textContent += texts[textIndex][charIndex];
                 charIndex++;
                 setTimeout(typing,150);
             }else {
-                typingElement.textContent = "";
-                charIndex = 0;
-                textIndex = (textIndex + 1) % texts.length;
+                setTimeout(()=>{
+                    typingElement.textContent = "";
+                    charIndex = 0;
+                    textIndex = (textIndex + 1) % texts.length;
                 // texts.length: 4 : 0 ~ 3
                 // 1 / 4 = 1
                 // 2 / 4 = 2
                 // 3 / 4 = 3
                 // 4 / 4 = 0
                 typing();
+                },1000)
             }
-        }
+        }    
         typing();
     </script>
 </body>
