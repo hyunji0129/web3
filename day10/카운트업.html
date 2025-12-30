@@ -56,7 +56,7 @@
 
         function animateCounter(counter){
             counter.innerText = "0";
-            const target =+ counter.getAttribute("data-taget");
+            const target =+ counter.getAttribute("data-target");
 
             let current = 0;    
             const update = ()=>{
@@ -66,7 +66,6 @@
                 if(current < target){
                     current += increment;
                     // 0 = 15 / 15 + 15 = 30
-                    
                     counter.innerText = Math.ceil(current);
                     requestAnimationFrame(update);
                     // requestAnimationFrame : 다음 화면을 그릴 때
