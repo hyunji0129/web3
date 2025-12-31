@@ -22,7 +22,18 @@
             // pageX / pageY / mousemove 이벤트가 발생하면 발생한 위치의 좌표를 알려줌 
             console.log(`x :${e.pageX}`);
             console.log(`y :${e.pageY}`);
+            cursor.style.transform = `translate(${e.pageX}px,${e.pageY}px)`;
         })
+
+        document.addEventListener("mousedown", ()=>{
+            cursor.style.transform += "scale(1.5)"; 
+        })
+
+        document.addEventListener("mouseup",()=>{
+            cursor.style.transform = cursor.style.transform.replace("scale(1.5)","");
+            // replace (제거(스케일1.5), 새로 넣을 값(아무것도 없음))
+        })
+           
     </script>
 </body>
 </html>
