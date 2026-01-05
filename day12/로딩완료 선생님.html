@@ -10,14 +10,15 @@
             padding: 0;
         }
 
-        .loading_container {
+        .loding_container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: linear-gradient(150deg,skyblue,rgb(20, 113, 150));
+            background: linear-gradient(150deg,skyblue,rgb(20, 113, 150),rgb(13, 88, 117));
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center
         }
@@ -25,12 +26,11 @@
         .dots {
             display: flex;
             gap: 30px;
-
         }
 
         .dot {
-            height: 20px;
             width: 20px;
+            height: 20px;
             background: #fff;
             border-radius: 50%;
             animation: dots 1.5s infinite linear;
@@ -45,7 +45,7 @@
             animation-delay: 0.6s;
         }
 
-        .loading_text {
+        .loding_text {
             font-size: 32px;
             color: #fff;
             animation: text_fade 1.5s infinite linear;
@@ -78,25 +78,25 @@
     </style>
 </head>
 <body>
-    <section class="loading_container">
+    <section class="loding_container">
         <div class="dots">
             <div class="dot"></div>
             <div class="dot"></div>
             <div class="dot"></div>
         </div>
-        <p class="loading_text">사이트를 준비중입니다.</p>
+        <p class="loding_text">사이트를 준비중입니다.</p>
     </section>
 
-    <section class="main_text">
+    <section class="main_container">
         <h1>로딩완료</h1>
         <p>웹페이지 확인 가능</p>
     </section>
     <script>
-        function hiddenLoading(){
-            const loadingContainer = document.querySelector(".loading_container");
-            loadingContainer.classList.add(".hidden");
+        function hiddenLoding(){
+            const lodingContainer = document.querySelector(".loding_container");
+            lodingContainer.classList.add("hidden");
         }
-        setTimeout(hiddenLoading,3000);
+        setTimeout(hiddenLoding,3000);
     </script>
 </body>
 </html>

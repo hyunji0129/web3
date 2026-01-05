@@ -37,7 +37,7 @@
         }
         
         .content {
-            /* flex: 1; */
+            flex: 1; 
             padding: 70px 40px 100px;
             position: relative;
             z-index: 1;
@@ -60,7 +60,7 @@
             height: 100px;
             filter: saturate(10%);
             transition: 1s;
-            box-shadow: 5px 5px 20px rgb(0,0,0,0.5s);
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
         }
 
         .main_section figure > video {
@@ -74,7 +74,7 @@
             display: block;
             width: 80%;
             height: 100%;
-            background: #898888;
+            background: #777676;
             position: absolute;
             z-index: -90;
             top: 0;
@@ -87,12 +87,12 @@
             margin-bottom: 40px;
             transition: 1s;
             padding-top: 80px;
-            color: #898888;
+            color: #777676;
         }
 
         .txt > p {
             width: 80%;
-            color: #898888;
+            color: #777676;
         }
 
         .txt > h2::after {
@@ -120,7 +120,7 @@
             color: #fff;
         }
 
-          .content:hover .inner .txt h2::after {
+        .content:hover .inner .txt h2::after {
            width: 120px;
            background: pink;
         }   
@@ -141,7 +141,7 @@
 
         <section class="main_section">
             <article class="content">
-                <div class="innner">
+                <div class="inner">
                     <div class="txt">
                         <h2>01</h2>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -153,7 +153,7 @@
             </article>
 
             <article class="content">
-                <div class="innner">
+                <div class="inner">
                     <div class="txt">
                         <h2>02</h2>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -165,7 +165,7 @@
             </article>
 
             <article class="content">
-                <div class="innner">
+                <div class="inner">
                     <div class="txt">
                         <h2>03</h2>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -177,7 +177,7 @@
             </article>
 
             <article class="content">
-                <div class="innner">
+                <div class="inner">
                     <div class="txt">
                         <h2>04</h2>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -193,11 +193,11 @@
             <div class="txt">
                     <h2 class="change_title">01</h2>
                     <p class="change_text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                    <span class="">
-
-                    </span>
+                    <span class="close_txt">CLOSE</span>
                 </div>
-           
+                <figure>
+                    <video class="hidden_video" src="./영상/vid4.mp4" muted loop></video>
+                </figure>
         </section> -->
     </main>
     <script>
