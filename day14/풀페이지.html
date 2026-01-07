@@ -103,8 +103,8 @@
     <script>
         const sections = document.querySelectorAll(".section");
         const menuItems = document.querySelectorAll(".menu_item");
-        const totalSection = sections.length;
-        console.log(totalSection);
+        const totalSections = sections.length; // 총 섹션의 개수(8)
+        console.log(totalSections);
         let isScrolling = false; // 스크롤인지 여부를 나타내는 변수
         let isFullPageScrollActive = false; // 현재 홈페이지가 활성화 된 상태인지 확인
         const breakPoint = 1024;
@@ -132,7 +132,7 @@
                 console.log(index);
                 currentSectionIndex = index;
                 sections[currentSectionIndex].scrollIntoView({
-                    // scrollInterView : html 요소가 화면에 보여지게 자동 스크롤 해주는 기능
+                    // scrollInterView : 특정 html 요소가 화면에 보여지게 자동 스크롤 해주는 기능
                     behavior:"smooth"
                 });
                 updateMenu();
