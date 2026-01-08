@@ -32,7 +32,8 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            transform: translateZ(70px);
+            transform: translateZ(110px);
+            color: #fff;
         }
 
         .first {
@@ -45,20 +46,16 @@
             background-size: cover;
         }
 
-        /* .second {
-            배경 이미지 한개 더 
-        } */ 
-
         .animal_img {
             position: absolute;
             bottom: 0;
             right: 0;
             width: 100%;
-            transform: translateZ();
-
+            transform: translateZ(60px);
         }
     </style>
 </head>
+
 <body>
     <div class="card first">
         <div class="card_content">
@@ -76,10 +73,10 @@
     </div>
 
     <script>
-        const card = document.querySelectorAll(".card");
+        const cards = document.querySelectorAll(".card");
         console.log(cards);
 
-        card.forEach(card=>{
+        cards.forEach(card=>{
             card.addEventListener("mousemove",(e)=>{
              //   console.log(e);
                 const rect = card.getBoundingClientRect();
@@ -103,9 +100,13 @@
                 // centerX : 카드 X중앙
                 // 200 - 150 = 50 -> rotateY(3.3deg)
 
-                card.style.transform = `rotate(${rotateX}deg)`
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                card.addEventListener("mouseleave",()=>{
+                    card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+                })
+
             })
-        })
+        });
     </script>
 </body>
 </html>
