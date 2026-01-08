@@ -39,6 +39,10 @@
             color: black;
         }
 
+        .menu.hidden {
+            display: none;
+        }
+
         @media(max-width:1024px){
             body {
                 overflow: auto;
@@ -181,11 +185,13 @@
 
         //===============================================================================
         // 반응형함수
+        const menuUl = document.getElementById("menu");
         function initFullPageScroll(){
             if(window.innerWidth > breakPoint){
-                window.addEventLister("Wheel",handleScroll);
+                window.addEventListener("wheel",handleScroll);
             }else {
-                window.removeEventListener("Wheel",handleScroll);
+                window.removeEventListener("wheel",handleScroll);
+                menuUl.classList.add("hidden");
             }
            
         }
